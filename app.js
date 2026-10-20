@@ -12,6 +12,29 @@ const seed={products:[
 ],orders:[],cart:[]};
 function getDB(){try{let d=JSON.parse(localStorage.getItem(KEY));if(d&&Array.isArray(d.products)&&Array.isArray(d.orders)){if(!Array.isArray(d.cart))d.cart=[];if(d.products.length===0){d.products=structuredClone(seed.products);localStorage.setItem(KEY,JSON.stringify(d));}return d}}catch(e){}localStorage.setItem(KEY,JSON.stringify(seed));return structuredClone(seed)}
 let db=getDB();
+ async function loadProductsFromSupabase() {
+  try {
+    const { data, error } = await supabaseClient
+      .from('products')
+      .select('*')
+      .eq('is_active', true);
+
+    if (error) {
+      console.error('Supabase product loading error:', error);
+      return;
+    }
+
+    if (data && data.length > 0) {
+      db.products = data;
+      localStorage.setItem('ojcrest_store_v1', JSON.stringify(db));
+      location.reload();
+    }
+  } catch (error) {
+    console.error('Connection error:', error);
+  }
+}
+
+loadProductsFromSupabase();
 function save(){localStorage.setItem(KEY,JSON.stringify(db));window.dispatchEvent(new Event('ojcrest-update'))}
 function toast(msg){let el=document.getElementById('toast');if(!el)return;el.textContent=msg;el.classList.add('show');clearTimeout(toast.t);toast.t=setTimeout(()=>el.classList.remove('show'),2600)}
 function fmtDate(d){return new Date(d).toLocaleDateString('en-NG',{day:'numeric',month:'short',year:'numeric'})}
