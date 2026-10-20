@@ -1,4 +1,6 @@
-/* OJ. CREST GROUP LTD — shared storefront/admin demo. No real payment processing. */
+(() => {
+const KEY='ojcrest_store_v1';
+ /* OJ. CREST GROUP LTD — shared storefront/admin demo. No real payment processing. */
 (() => {
 const KEY='ojcrest_store_v1';
 const money=n=>'₦'+Number(n||0).toLocaleString('en-NG',{maximumFractionDigits:0});
