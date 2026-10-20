@@ -12,7 +12,7 @@ const seed={products:[
 ],orders:[],cart:[]};
 function getDB(){try{let d=JSON.parse(localStorage.getItem(KEY));if(d&&Array.isArray(d.products)&&Array.isArray(d.orders)){if(!Array.isArray(d.cart))d.cart=[];if(d.products.length===0){d.products=structuredClone(seed.products);localStorage.setItem(KEY,JSON.stringify(d));}return d}}catch(e){}localStorage.setItem(KEY,JSON.stringify(seed));return structuredClone(seed)}
 let db=getDB();
- async function loadProductsFromSupabase() {
+ async function loadProductsFromSupabase() ;
   try {
     const { data, error } = await supabaseClient
       .from('products')
