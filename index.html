@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080808"><title>OJ. CREST GROUP LTD — Store</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="store">
+<header class="topbar">
+  <a class="brand" href="index.html"><img src="assets/oj-crest-logo.png" alt="OJ. CREST GROUP LTD logo"><span>OJ. CREST <small>GROUP LTD</small></span></a>
+  <nav><a class="active" href="index.html">Shop</a><a href="#collections">Collections</a><a href="#about">About</a><a class="admin-link" href="admin.html">Admin ↗</a></nav>
+  <button class="cart-button" id="cart-open">Bag <span id="cart-count">0</span></button>
+</header>
+<main>
+  <section class="hero">
+    <div class="hero-copy"><p class="eyebrow">DISTINCTION IN EVERY DETAIL</p><h1>Shop with<br><em>confidence.</em></h1><p>Discover a considered collection from OJ. CREST GROUP LTD.</p><a class="button gold-button" href="#collections">Explore the collection <span>↘</span></a></div>
+    <div class="hero-mark"><img src="assets/oj-crest-logo.png" alt=""></div>
+    <div class="hero-foot"><span>QUALITY · SERVICE · TRUST</span><span>OJ. CREST GROUP LTD / EST. WITH PURPOSE</span></div>
+  </section>
+  <section id="collections" class="shop-section">
+    <div class="section-heading"><div><p class="eyebrow">THE COLLECTION</p><h2>Find your next favourite.</h2></div><span id="product-total" class="muted"></span></div>
+    <div class="shop-tools"><input id="search" type="search" placeholder="Search products…" aria-label="Search products"><div id="category-filters" class="filters"></div></div>
+    <div id="product-grid" class="product-grid"></div>
+    <div id="empty-state" class="empty hidden"><span>✦</span><h3>Nothing here just yet</h3><p>Try another search or check back soon.</p></div>
+  </section>
+  <section id="about" class="about-strip"><span class="crest">OJ</span><div><p class="eyebrow">THE OJ. CREST STANDARD</p><h2>Thoughtful products.<br>Service you can trust.</h2></div><p>We believe every detail matters. Our store is built around a clear promise: a smooth shopping experience from discovery to delivery.</p></section>
+</main>
+<footer><a class="brand footer-brand" href="#"><img src="assets/oj-crest-logo.png" alt=""><span>OJ. CREST <small>GROUP LTD</small></span></a><span>© <span id="year"></span> OJ. CREST GROUP LTD</span><span>Made for a more considered way to shop.</span></footer>
+<div class="overlay hidden" id="cart-overlay"><aside class="cart-drawer"><div class="drawer-head"><div><p class="eyebrow">YOUR SELECTION</p><h2>Your bag <span id="drawer-count">(0)</span></h2></div><button class="icon-button" id="cart-close" aria-label="Close cart">×</button></div><div id="cart-items" class="cart-items"></div><div class="cart-bottom"><div class="total-line"><span>Subtotal</span><strong id="cart-subtotal">₦0</strong></div><p class="muted small">Delivery fees, if any, are confirmed before fulfilment.</p><button id="checkout" class="button gold-button full">Continue to checkout</button></div></aside></div>
+<div class="modal-overlay hidden" id="checkout-modal"><section class="checkout-modal"><button class="icon-button modal-x" id="checkout-close" aria-label="Close">×</button><p class="eyebrow">ALMOST YOURS</p><h2>Delivery details</h2><form id="checkout-form"><label>Full name<input name="name" required autocomplete="name"></label><label>Email address<input name="email" type="email" required autocomplete="email"></label><label>Phone number<input name="phone" required autocomplete="tel"></label><label>Delivery address<textarea name="address" required rows="3"></textarea></label><button class="button gold-button full" type="submit">Place demo order</button><p class="muted tiny">Demo only — no payment is collected.</p></form></section></div>
+<div id="toast" class="toast" role="status"></div>
+<script src="app.js"></script>
+</body></html>
